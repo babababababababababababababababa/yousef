@@ -4,29 +4,99 @@
   <title>ultra instinct waifu simulator **FOR YOUSSEFF'S EYES ONLY**</title>
   <style>
     body{
-      background-color: #9bb2f0;
-      font-family: 'Roboto';
-      font-size: 22px;
+		background-color: #9bb2f0;
+		font-family: 'Roboto';
+		font-size: 22px;
     }
     #startBox{
-      background-color: #D7E0F9;
-      border-radius: 5px;
-      width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      margin-top: 40%;
+		background-color: #D7E0F9;
+		border-radius: 5px;
+		width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+		margin-top: 25%;
     }
+	#mainBox{
+		display:none;	
+		width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#mannequin{
+		width:640px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#face{
+		position:absolute;
+		top: 20px;
+		left: 42.7vw;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#talkBox{
+		background-color: #D7E0F9;
+		border-radius: 5px;
+		width: 600px;
+		position:relative;
+		left: 20px;
+		height: 100px;
+	}
   </style>
 </head>
 <body>
   <div id="startBox">
     hey youssef, welcome to your own personal waifu<br>
-    <em>insert</em> an image of your favorite girl and your dreams shall come true~...
+    <em>insert</em> an image of your favorite girl's face and your dreams shall come true~...<br>
+	<input type="text" placeholder="place image url here" style="margin-left:auto;margin-right:auto;" id="waifuLink">
+	<input type="text" placeholder="what's her name?" style="margin-left:auto;margin-right:auto;" id="waifuName">
+	<input type="button" value="ready 2 waifu" style="width:150px;margin-left:auto;margin-right:auto;" id="startButton">
   </div>
-  <input type="text" placeholder="place a direct image url here (dont be a moron)">
-  <input type="button" value="Submit">                            
+  
+  <div id="mainBox">
+	<img id="face" src="" width=125 height=125>
+	<img id="mannequin" src="./manlet.png" width=640 height=640>
+	<div id="talkBox">
+		dumb shit
+	</div>
+	<input type="button" value="talk mean" id="mean">
+	<input type="button" value="talk nice" id="nice">
+	<input type="button" value="talk about ryan" id="ryan">
+  </div>
   <script>
+	var name = '"fuck you retard you didnt put in the name"';
+	function start(){
+		document.getElementById("startBox").style.display = "none";
+		document.getElementById("mainBox").style.display = "block";
+		document.getElementById("face").src = document.getElementById("waifuLink").value;
+		if(document.getElementById("waifuName").value != "")
+			name = document.getElementById("waifuName").value;
+		document.getElementById("talkBox").innerHTML = "hiii yousef-san!! my name is <em>" + name + "</em> but you can call me honey or bitch or whatever you want--- :33 ugu press the buttons bellow and ill talk to you usef-senpaii!!!!!! ~~~~~";
+	}
+	
+	var meanThings = ["uhg youseff why do you never hit shots??? so not kawaii", "youssef why are you always so black??", "why do you never talk to me and always talk to the dark skin girls...", "big forehead", "fuck you", "motherfucking asshole bitch die!!!", "get the fuck away from me!!!", "yousef what the fuck??? stop playing warframe and NOTICE me ", "im calling the police on you sugoi", "i feel personally attacked usef.. please go away.", "a"];
+	function mean(){
+		var meanThing = meanThings[Math.floor(Math.random()*meanThings.length)];
+		document.getElementById("talkBox").innerHTML = meanThing;
+	}
+	
+	var niceThings = ["haha wow it's so nice out today isn't it~", "lol xD", "thanks for talking to me youselef wow", "owie stop pinching my cheeks!!! bitch haha", "wow the stars are so nice out today jajaja", "yousef", "YOUSESEF my heart is beating super hard wow haha", "lol so nice", "ur so nice usef! wow..", "like my tie? got it on wholesale for $150.. it's nothing, really...", "stop looking at my bulge >_<!!!"];
+	function nice(){
+		var niceThing = niceThings[Math.floor(Math.random()*niceThings.length)];
+		document.getElementById("talkBox").innerHTML = niceThing;
+	}
+	
+	var ryanThings = ["this is nice but i wish ryan was here..", "have you seen ryan? no reason...", "RYAN", "ryan would treate me better than youbell", "fuck you ryan", "fuck ryan where's ryan", "Hi yousef how's it going! nice to see you baby~~ how was your trip with Ryan? what was he like? what was he wearing? really? how much had he worked out since you last saw him?", "sorry ryan yousf's already taken 8)", "fortune says... ryan"];
+	function ryan(){
+		var ryanThing = ryanThings[Math.floor(Math.random()*ryanThings.length)];
+		document.getElementById("talkBox").innerHTML = ryanThing;
+	}
+	
+	document.getElementById("mean").onclick = mean;
+	document.getElementById("nice").onclick = nice;
+	document.getElementById("ryan").onclick = ryan;
+	document.getElementById("startButton").onclick = start;
   </script>
 </body>
 </html>
